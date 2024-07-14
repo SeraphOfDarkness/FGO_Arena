@@ -25,7 +25,7 @@ export class AddonGameMode
 
     DefaultConfiguration(): void
     {
-        GameRules.SetCustomGameSetupTimeout(60);
+        GameRules.SetCustomGameSetupTimeout(30);
         
         GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 0);
         GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 0);
@@ -51,17 +51,17 @@ export class AddonGameMode
     OnGameStateChange(): void
     {
         const CurrentState = GameRules.State_Get();
+
         switch (CurrentState)
         {
+            case GameState.HERO_SELECTION:
+            {
+                this.GameMode.SetPauseEnabled(true);
+                break;
+            }
             case GameState.WAIT_FOR_MAP_TO_LOAD:
             {
-                for(let i = 0; i <= PlayerResource.GetNumConnectedHumanPlayers(); i++)
-                {
-                    const PlayerId = i as PlayerID;
-                    const Hero = PlayerResource.GetSelectedHeroEntity(PlayerId);
-                    print(Hero?.GetName());
-                    print(PlayerResource.GetSteamAccountID(PlayerId));
-                }
+                this.GameMode.SetPauseEnabled(false);
                 break;
             }
             default:
