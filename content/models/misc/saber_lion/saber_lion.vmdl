@@ -108,6 +108,16 @@
 							},
 							{
 								_class = "Hitbox"
+								name = "Head"
+								parent_bone = "Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.409832, -3.092793, -11.209178 ]
+								hitbox_maxs = [ 9.749466, 20.186619, 10.759252 ]
+							},
+							{
+								_class = "Hitbox"
 								name = "Tail1"
 								parent_bone = "Tail1"
 								surface_property = ""
@@ -303,7 +313,7 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "spell"
+						name = "spell1"
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -316,7 +326,7 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/misc/saber_lion/animations/spell.fbx"
+						source_filename = "models/misc/saber_lion/animations/spell1.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
@@ -353,7 +363,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = true
+						looping = false
 						delta = false
 						worldSpace = false
 						hidden = false

@@ -855,7 +855,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell2"
-						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -877,7 +877,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell3"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -899,7 +899,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell4"
-						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -943,7 +943,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell6"
-						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -965,7 +965,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell7"
-						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_name = "ACT_DOTA_ATTACK_EVENT"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1009,7 +1009,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell9"
-						activity_name = "ACT_DOTA_ATTACK_EVENT"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2

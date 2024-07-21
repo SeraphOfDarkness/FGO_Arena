@@ -6,22 +6,6 @@
 		children = 
 		[
 			{
-				_class = "RenderMeshList"
-				children = 
-				[
-					{
-						_class = "RenderMeshFile"
-						filename = "models/masters/hakunon/materials/hakunon_mesh.fbx"
-						import_scale = 1.0
-						import_filter = 
-						{
-							exclude_by_default = false
-							exception_list = [  ]
-						}
-					},
-				]
-			},
-			{
 				_class = "MaterialGroupList"
 				children = 
 				[
@@ -303,12 +287,28 @@
 				]
 			},
 			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/masters/hakunon/materials/hakunon_mesh.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
 				_class = "AnimationList"
 				children = 
 				[
 					{
 						_class = "AnimFile"
-						name = "attack1"
+						name = "attack"
 						children = 
 						[
 							{
@@ -336,7 +336,7 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/masters/hakunon/animations/attack1.fbx"
+						source_filename = "models/masters/hakunon/animations/attack.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
@@ -345,29 +345,7 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "channel1"
-						activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = true
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/masters/hakunon/animations/channel1.fbx"
-						import_bone_scales = false
-						start_frame = -1
-						end_frame = -1
-						framerate = -1.0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
-						name = "die"
+						name = "death"
 						children = 
 						[
 							{
@@ -395,7 +373,7 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/masters/hakunon/animations/die.fbx"
+						source_filename = "models/masters/hakunon/animations/death.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
@@ -427,12 +405,12 @@
 					{
 						_class = "AnimFile"
 						name = "spell2"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -448,7 +426,29 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "stand1"
+						name = "spell3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/masters/hakunon/animations/spell3.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stand"
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -461,7 +461,7 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/masters/hakunon/animations/stand1.fbx"
+						source_filename = "models/masters/hakunon/animations/stand.fbx"
 						import_bone_scales = false
 						start_frame = -1
 						end_frame = -1
