@@ -977,6 +977,18 @@
 					{
 						_class = "AnimFile"
 						name = "spell2"
+						children = 
+						[
+							{
+								_class = "AnimatedMaterialAttributeValue"
+								start_frame = 0
+								peak_frame = 8
+								tail_frame = 35
+								end_frame = 43
+								material_attribute_name = "Crest_Alpha"
+								target_value = 1.0
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -999,6 +1011,18 @@
 					{
 						_class = "AnimFile"
 						name = "spell3"
+						children = 
+						[
+							{
+								_class = "AnimatedMaterialAttributeValue"
+								start_frame = 0
+								peak_frame = 8
+								tail_frame = 36
+								end_frame = 43
+								material_attribute_name = "Crest_Alpha"
+								target_value = 1.0
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1021,6 +1045,18 @@
 					{
 						_class = "AnimFile"
 						name = "spell4"
+						children = 
+						[
+							{
+								_class = "AnimatedMaterialAttributeValue"
+								start_frame = 0
+								peak_frame = 8
+								tail_frame = 24
+								end_frame = 31
+								material_attribute_name = "Crest_Alpha"
+								target_value = 1.0
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
