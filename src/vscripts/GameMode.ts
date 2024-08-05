@@ -11,6 +11,7 @@ declare global
 export class AddonGameMode
 {
     GameMode: CDOTABaseGameMode;
+    PlayersPerTeam: number = 0;
 
     Configure(): void
     {
@@ -25,27 +26,26 @@ export class AddonGameMode
 
     DefaultConfiguration(): void
     {
-        GameRules.SetCustomGameSetupTimeout(30);
-        
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 0);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 0);
-
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, this.PlayersPerTeam);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, this.PlayersPerTeam);
         this.Setup_3v3v3v3();
     }
 
     Setup_3v3v3v3(): void
     {
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_1, 3);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_2, 3);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_3, 3);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_4, 3);
+        this.PlayersPerTeam = 3;
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_1, this.PlayersPerTeam);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_2, this.PlayersPerTeam);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_3, this.PlayersPerTeam);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_4, this.PlayersPerTeam);
     }
 
     Setup_4v4v4(): void
     {
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_1, 4);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_2, 4);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_3, 4);
+        this.PlayersPerTeam = 4;
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_1, this.PlayersPerTeam);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_2, this.PlayersPerTeam);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.CUSTOM_3, this.PlayersPerTeam);
     }
 
     OnGameStateChange(): void
@@ -56,12 +56,10 @@ export class AddonGameMode
         {
             case GameState.HERO_SELECTION:
             {
-                this.GameMode.SetPauseEnabled(true);
                 break;
             }
             case GameState.WAIT_FOR_MAP_TO_LOAD:
             {
-                this.GameMode.SetPauseEnabled(false);
                 break;
             }
             default:
