@@ -31,8 +31,6 @@ export class AddonGameMode
 
         this.GameMode.SetSelectionGoldPenaltyEnabled(false);
         GameRules.SetHeroSelectPenaltyTime(65);
-
-        this.Setup_3v3v3v3();
     }
 
     Setup_3v3v3v3(): void
@@ -58,6 +56,14 @@ export class AddonGameMode
 
         switch (CurrentState)
         {
+            case GameState.CUSTOM_GAME_SETUP:
+            {
+                if (IsInToolsMode())
+                {
+                    this.DebugModeConfiguration();
+                }
+                break;
+            }
             case GameState.HERO_SELECTION:
             {
                 this.RandomHeroesAfterTimeout();
@@ -74,19 +80,29 @@ export class AddonGameMode
         }
     }
 
+    
+
     async RandomHeroesAfterTimeout(): Promise<void>
     {
         await Utils.Sleep(120);
 
         for (let i = 0; i <= PlayerResource.GetNumConnectedHumanPlayers(); i++)
         {
+            const Player = PlayerResource.GetPlayer(i as PlayerID);
             const Hero = PlayerResource.GetSelectedHeroEntity(i as PlayerID);
 
             if (Hero === undefined)
             {
-                PlayerResource.GetPlayer(i as PlayerID)!.MakeRandomHeroSelection();
+                Player?.MakeRandomHeroSelection();
             }
         }
+    }
+
+    DebugModeConfiguration(): void
+    {
+        this.Setup_3v3v3v3();
+        PlayerResource.SetCustomTeamAssignment(0, DotaTeam.CUSTOM_1);
+        GameRules.BotPopulate();
     }
 
     constructor()
