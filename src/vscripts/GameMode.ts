@@ -80,19 +80,17 @@ export class AddonGameMode
         }
     }
 
-    
-
     async RandomHeroesAfterTimeout(): Promise<void>
     {
         await Utils.Sleep(120);
 
         for (let i = 0; i <= PlayerResource.GetNumConnectedHumanPlayers(); i++)
         {
-            const Player = PlayerResource.GetPlayer(i as PlayerID);
             const Hero = PlayerResource.GetSelectedHeroEntity(i as PlayerID);
 
             if (Hero === undefined)
             {
+                const Player = PlayerResource.GetPlayer(i as PlayerID);
                 Player?.MakeRandomHeroSelection();
             }
         }
