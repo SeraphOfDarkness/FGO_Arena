@@ -12,7 +12,8 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "detail": "run-p dev:*"
         }
     ]
 }

@@ -11,7 +11,9 @@
     },
     "tstl": {
         "luaTarget": "JIT",
-        "sourceMapTraceback": true
+        "sourceMapTraceback": false,
+        "noImplicitGlobalVariables": true,
+        "noHeader": true
     },
     "include": ["**/*.ts", "../common/**/*.ts"]
 }

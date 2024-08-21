@@ -1,39 +1,29 @@
-# ModDota template
+# Fate/Grand Order (FGO) Arena
 
-A template for Dota 2 Custom Games built with modern technologies.
+## Overview:
+A survival of the fittest overthrow MOD inspired by Fate/Grand Order and Fate/Grand Order Arcade.
+Pick your servant and class and cooperate with your teammates to survive in the ruthless four faction grail war.
+Stand near the Fantasy Tree to receive magical energy to strengthen your servant.
+Make use of consumables and command spells to prevail against factions from other Lostbelts.
 
-[This tutorial](https://moddota.com/scripting/Typescript/typescript-introduction/) explains how to set up and use the template.
+## Important notes/tips/guides:
+* This game is heavily based on Dota2 mechanics and Fate series characters and skillset. Please read Fate/Grand Order wikia and Type-Moon Fate wikia if you dont have any knowledge about Fate series.
+* Skills are heavily influenced by lores and I try to be as accurate as possible while keeping game balance.
+* There is NO permanent items in this game except Blink Dagger and ONLY consumables like potions. 
+* All heroes have high damage and can one-shot you instantly. Use scrolls to increase magic resistance/block X amount of damage.
+* Turn on your sounds. All skills have sound cues and long ranged skills are audible from fog. Knowing these sound cues can save yourself.
+* Use master1 to use Command Spells(refresh skills, refresh HP, refresh MP).
+* Use master2 to exchange stats and powerful consumables.
+* Make use of Dota2 quickbuy and sticky items to buy/combine items quickly.
 
-The template includes:
 
-- [TypeScript for Panorama](https://moddota.com/panorama/introduction-to-panorama-ui-with-typescript)
-- [TypeScript for VScripts](https://typescripttolua.github.io/)
-- Simple commands to build and launch your custom game
-- [Continuous Integration](#continuous-integration) support
+## Latest versions:
+* 0.0.1 (2024/8/21)
 
-## Getting Started
+## Full Changelogs:
+[Changelogs](https://github.com/SeraphOfDarkness/FGO_Arena/wiki/Full-Changelogs)
 
-1. Clone this repository or, if you're planning to have a repository for your custom game on GitHub, [create a new repository from this template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) and clone it instead.
-2. Open the directory of your custom game and change `name` field in `package.json` file to the name of your addon name.
-3. Open terminal in that directory and run `npm install` to install dependencies. You also should run `npm update` once in a while to get tool updates.
-
-After that you can press `Ctrl+Shift+B` in VSCode or run `npm run dev` command in terminal to compile your code and watch for changes.
-
-## Contents:
-
-* **[src/common]:** TypeScript .d.ts type declaration files with types that can be shared between Panorama and VScripts
-* **[src/vscripts]:** TypeScript code for Dota addon (Lua) vscripts. Compiles lua to game/scripts/vscripts.
-* **[src/panorama]:** TypeScript code for panorama UI. Compiles js to content/panorama/scripts/custom_game
-
---
-
-* **[game/*]:** Dota game directory containing files such as npc kv files and compiled lua scripts.
-* **[content/*]:** Dota content directory containing panorama sources other than scripts (xml, css, compiled js)
-
---
-
-* **[scripts/*]:** Repository installation scripts
-
-## Continuous Integration
-
-This template includes a [GitHub Actions](https://github.com/features/actions) [workflow](.github/workflows/ci.yml) that builds your custom game on every commit and fails when there are type errors.
+## Disclaimer:
+Please note that this MOD is purely a hobby and a learning experience for myself.
+No copyright infringement intended, and I do not own nor claim to own any kind of contents used in this MOD.
+All characters, models, songs, videos and other assets used in this MOD belong to Type-Moon and its respective creators.
