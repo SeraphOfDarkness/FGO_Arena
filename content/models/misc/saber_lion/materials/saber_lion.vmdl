@@ -1,0 +1,446 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "body.vmat"
+								to = "models/misc/saber_lion/materials/body_texture.vmat"
+							},
+							{
+								from = "face.vmat"
+								to = "models/misc/saber_lion/materials/head_texture.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Default"
+								parent_bone = "Default"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.012684, -11.008369, -19.470308 ]
+								hitbox_maxs = [ 17.543659, 4.443108, 19.470308 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Chest"
+								parent_bone = "Chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.497059, -0.5, -17.166868 ]
+								hitbox_maxs = [ 17.360214, 32.813469, 17.166861 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_arm"
+								parent_bone = "R_arm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.768269, -0.5, -3.056528 ]
+								hitbox_maxs = [ 4.329414, 10.614563, 4.616411 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_elbow"
+								parent_bone = "R_elbow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.452826, -0.5, -3.846634 ]
+								hitbox_maxs = [ 4.933216, 11.044432, 3.250378 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_hand"
+								parent_bone = "R_hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.824871, -0.5, -5.244953 ]
+								hitbox_maxs = [ 7.581472, 16.902462, 3.576199 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_arm"
+								parent_bone = "L_arm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.096645, -0.5, -4.174667 ]
+								hitbox_maxs = [ 3.757499, 10.598708, 3.728703 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_elbow"
+								parent_bone = "L_elbow"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.462405, -0.5, -3.569313 ]
+								hitbox_maxs = [ 3.155498, 11.076935, 3.351612 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Head"
+								parent_bone = "Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -47.049202, -15.463989, -56.045937 ]
+								hitbox_maxs = [ 48.747345, 100.933151, 53.796288 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Tail1"
+								parent_bone = "Tail1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.464724, -0.5, -2.212267 ]
+								hitbox_maxs = [ 2.459667, 15.099203, 2.638443 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Tail2"
+								parent_bone = "Tail2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.488938, -0.5, -2.502048 ]
+								hitbox_maxs = [ 2.490847, 29.992521, 2.522356 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_leg"
+								parent_bone = "L_leg"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.249008, -0.5, -7.557801 ]
+								hitbox_maxs = [ 11.539974, 16.129412, 6.528987 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "L_knee"
+								parent_bone = "L_knee"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.59224, -0.5, -6.268619 ]
+								hitbox_maxs = [ 6.291421, 9.242088, 5.054718 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_leg"
+								parent_bone = "R_leg"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.808827, -0.5, -6.835294 ]
+								hitbox_maxs = [ 11.878427, 15.969418, 8.059933 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "R_knee"
+								parent_bone = "R_knee"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.164743, -0.5, -5.063375 ]
+								hitbox_maxs = [ 6.754292, 9.242092, 6.358011 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone_Hair1"
+								parent_bone = "Bone_Hair1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -41.147896, -4.229012 ]
+								hitbox_maxs = [ 20.82238, 0.5, 4.293652 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone_Hair2"
+								parent_bone = "Bone_Hair2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.525184, -42.600662, -4.600002 ]
+								hitbox_maxs = [ 5.798939, 0.5, 47.001732 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/misc/saber_lion/materials/saber_lion.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "attack1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/attack1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/attack2.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/death.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/spell.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stand1"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/stand1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stand2"
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/stand2.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/misc/saber_lion/animations/walk.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = -1
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		document_sub_type = "ModelDocSubType_None"
+	}
+}
