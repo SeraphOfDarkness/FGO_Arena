@@ -1,4 +1,4 @@
-//import * as Utils from "./utils/UtilList"
+import * as Utils from "./utils/UtilList"
 
 declare global 
 {
@@ -17,6 +17,8 @@ export class AddonGameMode
     {
         GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, this.PlayersPerTeam);
         GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, this.PlayersPerTeam);
+
+        this.GameMode.SetUseTurboCouriers(true);
     }
 
     Setup3v3v3v3(): void
@@ -37,6 +39,90 @@ export class AddonGameMode
         }
     }
 
+    SpawnMastersAndCouriers(): void
+    {
+        for (let i = 0; i <= PlayerResource.GetNumConnectedHumanPlayers(); i++)
+        {
+            const PlayerId = i as PlayerID;
+            const Player = PlayerResource.GetPlayer(PlayerId);
+
+            if (Utils.IsValidObject(Player))
+            {
+                const Team = PlayerResource.GetTeam(PlayerId);
+                const OffsetIndex = PlayerResource.GetNumCouriersForTeam(Team);
+
+                let TeamStr = "Team";
+
+                switch (Team)
+                {
+                    case DotaTeam.CUSTOM_1:
+                    {
+                        TeamStr = TeamStr + 1;
+                        break;
+                    }
+                    case DotaTeam.CUSTOM_2:
+                    {
+                        TeamStr = TeamStr + 2;
+                        break;
+                    }
+                    case DotaTeam.CUSTOM_3:
+                    {
+                        TeamStr = TeamStr + 3;
+                        break;
+                    }
+                    case DotaTeam.CUSTOM_4:
+                    {
+                        TeamStr = TeamStr + 4;
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                }
+
+                this.SpawnMastersForPlayer(PlayerId, TeamStr, OffsetIndex);
+                this.SpawnCourierForPlayer(PlayerId, TeamStr, OffsetIndex);
+            }
+        }
+    }
+
+    SpawnMastersForPlayer(PlayerId: PlayerID, TeamStr: string, OffsetIndex: number): void
+    {
+        for (let i = 1; i <= 2; i++)
+        {
+            const SpawnerStr = TeamStr + "Master" + i + "Spawner";
+            const Spawner = Entities.FindByName(undefined, SpawnerStr);
+            
+            if (Utils.IsValidObject(Spawner))
+            {
+                const SpawnerPos = Spawner?.GetAbsOrigin() as Vector;
+                const OffsetPos = (Vector(250, 0, 0) * OffsetIndex) as Vector;
+                const MasterPos = SpawnerPos?.__add(OffsetPos);
+                const PlayerController = PlayerResource.GetPlayer(PlayerId);
+                const Master = CreateUnitByName("Master" + i, MasterPos, false, PlayerController, PlayerController, PlayerResource.GetTeam(PlayerId));
+                Master.SetControllableByPlayer(PlayerId, false);
+                Master.SetHealth(1);
+                Master.SetMana(1);
+            }
+        }
+    }
+
+    SpawnCourierForPlayer(PlayerId: PlayerID, TeamStr: string, OffsetIndex: number): void
+    {
+        const SpawnerStr = TeamStr + "CourierSpawner";
+        const Spawner = Entities.FindByName(undefined, SpawnerStr);
+
+        if (Utils.IsValidObject(Spawner))
+        {
+            const SpawnerPos = Spawner?.GetAbsOrigin() as Vector;
+            const OffsetPos = (Vector(250, 0, 0) * OffsetIndex) as Vector;
+            const CourierPos = SpawnerPos?.__add(OffsetPos);
+            const PlayerController = PlayerResource.GetPlayer(PlayerId);
+            const Courier = PlayerController?.SpawnCourierAtPosition(CourierPos);
+        }
+    }
+
     OnGameStateChange(): void
     {
         const CurrentState = GameRules.State_Get();
@@ -53,6 +139,7 @@ export class AddonGameMode
             }
             case GameState.WAIT_FOR_MAP_TO_LOAD:
             {
+                this.SpawnMastersAndCouriers();
                 break;
             }
             default: 

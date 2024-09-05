@@ -2,6 +2,7 @@ local ____lualib = require("lualib_bundle")
 local __TS__Class = ____lualib.__TS__Class
 local __TS__New = ____lualib.__TS__New
 local ____exports = {}
+local Utils = require("utils.UtilList")
 ____exports.AddonGameMode = __TS__Class()
 local AddonGameMode = ____exports.AddonGameMode
 AddonGameMode.name = "AddonGameMode"
@@ -14,6 +15,7 @@ end
 function AddonGameMode.prototype.DefaultConfiguration(self)
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_GOODGUYS, self.PlayersPerTeam)
     GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_BADGUYS, self.PlayersPerTeam)
+    self.GameMode:SetUseTurboCouriers(true)
 end
 function AddonGameMode.prototype.Setup3v3v3v3(self)
     self.PlayersPerTeam = 3
@@ -35,12 +37,103 @@ function AddonGameMode.prototype.Setup4v4v4(self)
         end
     end
 end
+function AddonGameMode.prototype.SpawnMastersAndCouriers(self)
+    do
+        local i = 0
+        while i <= PlayerResource:GetNumConnectedHumanPlayers() do
+            local PlayerId = i
+            local Player = PlayerResource:GetPlayer(PlayerId)
+            if Utils:IsValidObject(Player) then
+                local Team = PlayerResource:GetTeam(PlayerId)
+                local OffsetIndex = PlayerResource:GetNumCouriersForTeam(Team)
+                local TeamStr = "Team"
+                repeat
+                    local ____switch11 = Team
+                    local ____cond11 = ____switch11 == DOTA_TEAM_CUSTOM_1
+                    if ____cond11 then
+                        do
+                            TeamStr = TeamStr .. 1
+                            break
+                        end
+                    end
+                    ____cond11 = ____cond11 or ____switch11 == DOTA_TEAM_CUSTOM_2
+                    if ____cond11 then
+                        do
+                            TeamStr = TeamStr .. 2
+                            break
+                        end
+                    end
+                    ____cond11 = ____cond11 or ____switch11 == DOTA_TEAM_CUSTOM_3
+                    if ____cond11 then
+                        do
+                            TeamStr = TeamStr .. 3
+                            break
+                        end
+                    end
+                    ____cond11 = ____cond11 or ____switch11 == DOTA_TEAM_CUSTOM_4
+                    if ____cond11 then
+                        do
+                            TeamStr = TeamStr .. 4
+                            break
+                        end
+                    end
+                    do
+                        do
+                            break
+                        end
+                    end
+                until true
+                self:SpawnMastersForPlayer(PlayerId, TeamStr, OffsetIndex)
+                self:SpawnCourierForPlayer(PlayerId, TeamStr, OffsetIndex)
+            end
+            i = i + 1
+        end
+    end
+end
+function AddonGameMode.prototype.SpawnMastersForPlayer(self, PlayerId, TeamStr, OffsetIndex)
+    do
+        local i = 1
+        while i <= 2 do
+            local SpawnerStr = ((TeamStr .. "Master") .. tostring(i)) .. "Spawner"
+            local Spawner = Entities:FindByName(nil, SpawnerStr)
+            if Utils:IsValidObject(Spawner) then
+                local SpawnerPos = Spawner and Spawner:GetAbsOrigin()
+                local OffsetPos = Vector(250, 0, 0) * OffsetIndex
+                local MasterPos = SpawnerPos and SpawnerPos:__add(OffsetPos)
+                local PlayerController = PlayerResource:GetPlayer(PlayerId)
+                local Master = CreateUnitByName(
+                    "Master" .. tostring(i),
+                    MasterPos,
+                    false,
+                    PlayerController,
+                    PlayerController,
+                    PlayerResource:GetTeam(PlayerId)
+                )
+                Master:SetControllableByPlayer(PlayerId, false)
+                Master:SetHealth(1)
+                Master:SetMana(1)
+            end
+            i = i + 1
+        end
+    end
+end
+function AddonGameMode.prototype.SpawnCourierForPlayer(self, PlayerId, TeamStr, OffsetIndex)
+    local SpawnerStr = TeamStr .. "CourierSpawner"
+    local Spawner = Entities:FindByName(nil, SpawnerStr)
+    if Utils:IsValidObject(Spawner) then
+        local SpawnerPos = Spawner and Spawner:GetAbsOrigin()
+        local OffsetPos = Vector(250, 0, 0) * OffsetIndex
+        local CourierPos = SpawnerPos and SpawnerPos:__add(OffsetPos)
+        local PlayerController = PlayerResource:GetPlayer(PlayerId)
+        local Courier = PlayerController and PlayerController:SpawnCourierAtPosition(CourierPos)
+    end
+end
 function AddonGameMode.prototype.OnGameStateChange(self)
     local CurrentState = GameRules:State_Get()
     repeat
-        local ____switch9 = CurrentState
-        local ____cond9 = ____switch9 == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP
-        if ____cond9 then
+        local ____switch23 = CurrentState
+        local ____cond23 = ____switch23 == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP
+        if ____cond23 then
             do
                 if IsInToolsMode() then
                     self:DebugConfiguration()
@@ -48,9 +141,10 @@ function AddonGameMode.prototype.OnGameStateChange(self)
                 break
             end
         end
-        ____cond9 = ____cond9 or ____switch9 == DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD
-        if ____cond9 then
+        ____cond23 = ____cond23 or ____switch23 == DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD
+        if ____cond23 then
             do
+                self:SpawnMastersAndCouriers()
                 break
             end
         end
