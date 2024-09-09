@@ -18,7 +18,12 @@ export class AddonGameMode
         GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, this.PlayersPerTeam);
         GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, this.PlayersPerTeam);
 
+        GameRules.SetHeroSelectionTime(60);
+        GameRules.SetHeroSelectPenaltyTime(35);
+
         this.GameMode.SetUseTurboCouriers(true);
+        this.GameMode.SetPauseEnabled(false);
+        this.GameMode.SetSelectionGoldPenaltyEnabled(false);
     }
 
     Setup3v3v3v3(): void
@@ -123,6 +128,22 @@ export class AddonGameMode
         }
     }
 
+    async RandomHeroAfterTimeout(): Promise<void>
+    {
+        await Utils.Sleep(90);
+        for(let i = 0; i <= PlayerResource.GetNumConnectedHumanPlayers(); i++)
+        {
+            const PlayerId = i as PlayerID;
+            const Hero = PlayerResource.GetSelectedHeroEntity(PlayerId);
+
+            if (!Utils.IsValidObject(Hero))
+            {
+                const Player = PlayerResource.GetPlayer(PlayerId);
+                Player?.MakeRandomHeroSelection();
+            }
+        }
+    }
+
     OnGameStateChange(): void
     {
         const CurrentState = GameRules.State_Get();
@@ -135,6 +156,11 @@ export class AddonGameMode
                 {
                     this.DebugConfiguration();
                 }
+                break;
+            }
+            case GameState.HERO_SELECTION:
+            {
+                this.RandomHeroAfterTimeout();
                 break;
             }
             case GameState.WAIT_FOR_MAP_TO_LOAD:
